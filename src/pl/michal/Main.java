@@ -62,6 +62,6 @@ public class Main {
             wordList.add(input.nextLine());
         }
 
-        Collections.sort(wordList,);
+        Collections.sort(wordList,/*Tu trzeba coś wstawic :)");
     }
 }
