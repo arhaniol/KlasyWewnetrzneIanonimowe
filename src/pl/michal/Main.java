@@ -1,9 +1,6 @@
 package pl.michal;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static class Robot {
@@ -54,14 +51,31 @@ public class Main {
         johan.saySomething();
     }
 
-    public static void task2(){
-        List<String> wordList=new LinkedList<>();
-        Scanner input=new Scanner(System.in);
+    public static void task2() {
+        List<String> wordList = new LinkedList<>();
+        Scanner input = new Scanner(System.in);
         System.out.println("Type 5 words:");
-        for(int i=0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             wordList.add(input.nextLine());
         }
+        System.out.println("Lista przed sortowaniem:");
+        printWordList(wordList);
 
-        Collections.sort(wordList,/*Tu trzeba coś wstawic :)");
+        Collections.sort(wordList, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+
+        System.out.println("Lista po sortowaniu:");
+        printWordList(wordList);
     }
+
+    private static void printWordList(List<String> words) {
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+
 }
